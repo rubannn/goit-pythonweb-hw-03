@@ -24,6 +24,10 @@ logs:           ## Переглянути логи
 
 clean:          ## Зупинити та видалити контейнер, образ і volume
 	docker compose down --volumes --rmi local
+	docker container prune -f
+	docker image prune -a -f
+	docker volume prune -f
+	docker network prune -f
 
 shell:          ## Зайти всередину контейнера
 	docker compose exec app bash
