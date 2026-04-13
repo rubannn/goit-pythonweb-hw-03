@@ -24,12 +24,12 @@ def write_data(data):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", active_page="home")
 
 
 @app.route("/message.html")
 def message_page():
-    return render_template("message.html")
+    return render_template("message.html", active_page="message")
 
 
 @app.route("/message", methods=["POST"])
@@ -50,7 +50,7 @@ def message():
 @app.route("/read")
 def read():
     data = read_data()
-    return render_template("read.html", messages=data)
+    return render_template("read.html", messages=data, active_page="read")
 
 
 # ── Обработчик 404 ────────────────────────────────────────
