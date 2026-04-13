@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - storage_data:/app/storage
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s   # перевіряти кожні 30 сек
+      timeout: 10s    # чекати відповідь 10 сек
+      retries: 3      # 3 невдалі спроби = unhealthy
+      start_period: 10s  # дати час на старт перед першою перевіркою
+
+
+volumes:
+  storage_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./storage   # ← папка проекту
