@@ -7,7 +7,10 @@ PORT = 3000
 build:          ## Збілдити Docker образ
 	docker compose build
 
-run:            ## Запустити контейнер
+run:            ## Запустити контейнер (foreground)
+	docker compose up
+
+rund:            ## Запустити контейнер	(background)
 	docker compose up -d
 
 stop:           ## Зупинити контейнер
