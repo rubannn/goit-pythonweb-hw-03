@@ -24,12 +24,12 @@ def write_data(data):
 
 @app.route("/")
 def index():
-    return render_template("index.html", active_page="home")
+    return render_template("index.html", active_page="home", title="Home")
 
 
 @app.route("/message.html")
 def message_page():
-    return render_template("message.html", active_page="message")
+    return render_template("message.html", active_page="message", title="Send message")
 
 
 @app.route("/message", methods=["POST"])
@@ -50,14 +50,14 @@ def message():
 @app.route("/read")
 def read():
     data = read_data()
-    return render_template("read.html", messages=data, active_page="read")
+    return render_template("read.html", messages=data, active_page="read", title="Read messages")
 
 
 # ── Обработчик 404 ────────────────────────────────────────
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template("error.html"), 404
+    return render_template("error.html", title="404 - Page Not Found"), 404
 
 
 if __name__ == "__main__":
