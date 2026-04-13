@@ -4,6 +4,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
+      - .:/app  
       - storage_data:/app/storage
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/"]
