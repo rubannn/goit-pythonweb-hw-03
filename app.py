@@ -27,7 +27,7 @@ def index():
     return render_template("index.html", active_page="home", title="Home")
 
 
-@app.route("/message.html")
+@app.route("/message")
 def message_page():
     return render_template("message.html", active_page="message", title="Send message")
 
